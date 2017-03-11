@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+#add-notes {
+  padding-bottom: 12px;
+  margin-bottom: 48px;
+  border-bottom: 1px solid #333;
+}
+
+label {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+input {
+  display: block;
+  width: 250px;  
+  margin-bottom: 15px;
+}
+
+textarea {
+  display: block;
+  margin-bottom: 15px;
+}
+
+select {
+  display: block;
+  margin-bottom: 15px;
+}
+
+button {
+  display: block;
+  width: 125px;
+  padding: 6px 8px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+ul {
+  padding-left: 0;
+}
+
+/*TODO add flex*/
+#notes li {
+  list-style-type: none;
+  display: block;
+  float: left;
+  width: 330px;
+  height: 250px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+
+}
+
+#notes li.red {
+  background: pink;
+}
+
+#notes li.green {
+  background: palegreen;
+}
+
+#notes li.blue {
+  background: skyblue;
+}
+
+.note-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+
+}
+
+.note-message {
+  display: block;
+  width: 100%;
+  
+}
