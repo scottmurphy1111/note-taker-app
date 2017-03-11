@@ -1,33 +1,62 @@
 (function() {
+
   var app = {
 
+    errorDisplay: document.getElementById('error'),
+    title: document.getElementById('title'),
+    message: document.getElementById('message'),
+    color: document.getElementById('color'),
+    addButton: document.getElementById('add-btn'),
+    deleteButton: document.querySelector('.delete'),
+    notes: document.getElementById('notes'),
+
     init: function() {
-      var addButton = document.getElementById('add-btn');
-      addButton.addEventListener('click', app.createNote);
+      // var title = document.getElementById('title'),
+      // message = document.getElementById('message'),
+      // color = document.getElementById('color');
+      
+
+      console.log(app.errorDisplay);
+
+      app.title.addEventListener('focus', app.clearError);
+      app.message.addEventListener('focus', app.clearError);
+
+      //var addButton = document.getElementById('add-btn');
+      app.addButton.addEventListener('click', app.createNote);
+
+      
+      app.deleteButton.addEventListener('click', app.deleteNote);
+    },
+    clearError: function() {
+      console.log(app.errorDisplay);
+      app.errorDisplay.innerHTML = '';
     },
     createNote: function() {
-      var title = document.getElementById('title'),
-      message = document.getElementById('message'),
-      color = document.getElementById('color');
       note = new Object();
 
-      if(!title.value || !message.value) {
+      if(!app.title.value || !app.message.value) {
         //TODO add error
         //alert('Must add values to Add Note');
+        
+        app.errorDisplay.innerHTML = '<span>Values required</span>';
         return;
       } else {
-        note.title = title.value;
-        note.message = message.value;
-        note.color = color.value;
+        note.title = app.title.value;
+        note.message = app.message.value;
+        note.color = app.color.value;
 
         app.addNote(note);
       }
     },
     addNote: function(note) {
-      var notes = document.getElementById('notes'),
-      li = document.createElement('li'),
+      var li = document.createElement('li'),
+      deleteBtn = document.createElement('span'),
       title = document.createElement('span'),
       message = document.createElement('span');
+
+      deleteBtn.className = 'delete';
+      deleteBtn.innerHTML = 'X';
+      deleteBtn.addEventListener('click', app.deleteNote);
 
       title.className = 'note-title';
       title.innerHTML = note.title;
@@ -37,16 +66,17 @@
       
       li.className = note.color;
 
+      li.appendChild(deleteBtn);
       li.appendChild(title);
       li.appendChild(message);
 
-      notes.appendChild(li);
+      app.notes.appendChild(li);
     },
     editNote: function(note) {
       //TODO
     },
-    deleteNote: function(note) {
-      //TODO
+    deleteNote: function() {
+      this.parentNode.remove();
     }
   };
 

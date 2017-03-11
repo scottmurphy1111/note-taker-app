@@ -1,6 +1,11 @@
 body {
   margin: 0;
   padding: 0;
+
+}
+* {
+  font-family: Proxima Nova, sans-serif;
+  font-weight: 300;
 }
 
 #wrapper {
@@ -32,6 +37,10 @@ textarea {
   margin-bottom: 15px;
 }
 
+#error {
+  color: red;
+}
+
 select {
   display: block;
   margin-bottom: 15px;
@@ -51,6 +60,7 @@ ul {
 
 /*TODO add flex*/
 #notes li {
+  position: relative;
   list-style-type: none;
   display: block;
   float: left;
@@ -73,6 +83,14 @@ ul {
 
 #notes li.blue {
   background: skyblue;
+}
+
+.delete {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 1.25em;
+  cursor: pointer;
 }
 
 .note-title {
