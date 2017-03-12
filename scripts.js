@@ -1,7 +1,6 @@
 (function() {
 
   var app = {
-
     noteEditor: document.getElementById('note-editor'),
     noteEditorTitle: document.getElementById('note-editor-title'),
     title: document.getElementById('title'),
@@ -100,8 +99,6 @@
           app.addButton.innerText = 'Create Note';
         }, 200);
       }
-     
-      
     },
     editNote: function() {
       var li,
@@ -168,8 +165,7 @@
     
       setTimeout(function() {
         app.noteEditorTitle.innerText = 'Create Note';
-          
-        //app.addButton.innerText = 'Create Note';
+        
         app.addButton.removeEventListener('click', app.saveNote);
         app.addButton.addEventListener('click', app.createNote);
 

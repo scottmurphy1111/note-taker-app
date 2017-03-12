@@ -2,8 +2,8 @@ body {
   margin: 0;
   padding: 0;
   font-size: 18px;
-
 }
+
 * {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -72,6 +72,9 @@ textarea.is-empty {
 select {
   display: block;
   margin-bottom: 15px;
+  width: 175px;
+  padding: 0;
+  height: 24px;
 }
 
 button {
@@ -91,7 +94,6 @@ button {
 }
 
 button:active {
-
   box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
   top: 1px;
   left: 1px;
@@ -148,7 +150,6 @@ footer {
 
 .edit {
   position: absolute;
-  
   height: 24px;
   left: 12px;
   line-height: 24px;
@@ -178,5 +179,4 @@ i:before {
 .note-message {
   display: block;
   width: 100%;
-  
 }
