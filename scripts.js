@@ -18,12 +18,20 @@
     init: function() {
       app.title.addEventListener('focus', app.clearError);
       app.message.addEventListener('focus', app.clearError);
+
+      app.title.addEventListener('keypress', app.detectInput);
+      app.message.addEventListener('keypress', app.detectInput);
+
       app.addButton.addEventListener('click', app.createNote);
-
-      app.deleteButton.addEventListener('click', app.deleteNote);
-      app.editButton.addEventListener('click', app.editNote);
-
     },
+    detectInput: function() {
+      if(!app.title.value || !app.message.value) {
+        return;
+      } else {
+        app.addButton.innerText = 'Done';
+      }
+    },
+    
     clearError: function() {
       app.title.classList.remove('is-empty');
       app.message.classList.remove('is-empty');
@@ -39,7 +47,6 @@
         if(!app.message.value) {
           app.message.classList.add('is-empty');
         }
-        
         app.errorDisplay.innerHTML = '<span>*Values required</span>';
         return;
       } else {
@@ -81,7 +88,20 @@
       li.appendChild(message);
       li.appendChild(footer);
 
-      app.notes.appendChild(li);
+      app.notes.prepend(li);
+
+      app.title.value = '';
+      app.message.value = '';
+
+      if(!app.editMode) {
+        app.addButton.innerText = 'Create Note';
+      } else {
+        setTimeout(function() {
+          app.addButton.innerText = 'Create Note';
+        }, 200);
+      }
+     
+      
     },
     editNote: function() {
       var li,
@@ -125,7 +145,7 @@
         setTimeout(function() {
           app.noteEditorTitle.innerText = 'Edit Note';
           
-          app.addButton.innerText = 'Save Note';
+          app.addButton.innerText = 'Done';
           app.addButton.removeEventListener('click', app.createNote);
           app.addButton.addEventListener('click', app.saveNote);
 
@@ -138,34 +158,29 @@
         }, 200);
       } else {
         return;
-      }
-      
+      }  
     },
     saveNote: function() {
       app.createNote();
 
-      if(!app.title.value || !app.message.value) { 
-        return;
-      } else {
-        app.noteEditor.classList.add('hide');
-        app.notesSection.classList.add('hide');
-      
-        setTimeout(function() {
-          app.noteEditorTitle.innerText = 'Add Note';
-            
-          app.addButton.innerText = 'Create Note';
-          app.addButton.removeEventListener('click', app.saveNote);
-          app.addButton.addEventListener('click', app.createNote);
+      app.noteEditor.classList.add('hide');
+      app.notesSection.classList.add('hide');
+    
+      setTimeout(function() {
+        app.noteEditorTitle.innerText = 'Create Note';
+          
+        //app.addButton.innerText = 'Create Note';
+        app.addButton.removeEventListener('click', app.saveNote);
+        app.addButton.addEventListener('click', app.createNote);
 
-          app.title.value = '';
-          app.message.value = '';
+        app.title.value = '';
+        app.message.value = '';
 
-          app.notesSection.classList.remove('hide');
-          app.noteEditor.classList.remove('hide');
-          app.editMode = false;
-        }, 200);
-      }
-    },
+        app.notesSection.classList.remove('hide');
+        app.noteEditor.classList.remove('hide');
+        app.editMode = false;
+      }, 200);
+    },    
     deleteNote: function() {
       this.parentNode.remove();
     }

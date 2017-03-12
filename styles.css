@@ -103,11 +103,13 @@ ul {
 
 #notes-section {
   opacity: 1;
+  visibility: visible;
   transition: all 0.25s ease-out;
 }
 
 #notes-section.hide {
   opacity: 0;
+  visibility: hidden;
 }
 
 #notes li {
