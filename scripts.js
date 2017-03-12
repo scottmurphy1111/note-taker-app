@@ -131,6 +131,7 @@
 
           app.title.value = note.title;
           app.message.value = note.message;
+          app.color.value = note.color;
 
           app.noteEditor.classList.remove('hide');
           app.editMode = true;
