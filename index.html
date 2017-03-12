@@ -5,34 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Note Taker App</title>
-  <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"> -->
+  <link href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link inline href="styles.css" type="text/css" rel="stylesheet">
 </head>
 <body>
   <div id="wrapper">
-    <h1>Note Taker App</h1>
     <div id="add-notes">
       <h2>Add Note</h2>
       <label>Title:</label>
       <input type="text" id="title" name="title" />
       <label>Body:</label>
-      <textarea rows="10" cols="40" id="message" name="message"></textarea>
-      <div id="error"></div>
+      <textarea rows="10" cols="42" id="message" name="message"></textarea>
       <label>Color:</label>
       <select id="color" name="color">
         <option value="red" selected>Red</option>
         <option value="green">Green</option>
         <option value="blue">Blue</option>
       </select>
-      <button id="add-btn">Create New Note</button>
+      <div id="button">
+        <button id="add-btn">Create Note</button>
+        <div id="error"></div>
+      </div>
     </div>
 
     <h2>Notes</h2>
     <ul id="notes">
       <li class="red">
-        <span class="delete">X</span>
+        <span class="delete"><i class="fa fa-trash-o"></i></span>
         <span class="note-title">Title</span>
         <span class="note-message">This is the message</span>
+        <footer>
+          <span class="edit"><i class="fa fa-pencil-square-o"></i> Edit</span>
+        </footer>
       </li>
 
     </ul>
