@@ -30,7 +30,6 @@
         app.addButton.innerText = 'Done';
       }
     },
-    
     clearError: function() {
       app.title.classList.remove('is-empty');
       app.message.classList.remove('is-empty');
@@ -165,7 +164,7 @@
     
       setTimeout(function() {
         app.noteEditorTitle.innerText = 'Create Note';
-        
+
         app.addButton.removeEventListener('click', app.saveNote);
         app.addButton.addEventListener('click', app.createNote);
 
