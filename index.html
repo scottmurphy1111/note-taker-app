@@ -11,8 +11,8 @@
 </head>
 <body>
   <div id="wrapper">
-    <div id="add-notes">
-      <h2>Add Note</h2>
+    <div id="note-editor">
+      <h2 id="note-editor-title">Add Note</h2>
       <label>Title:</label>
       <input type="text" id="title" name="title" />
       <label>Body:</label>
@@ -29,18 +29,20 @@
       </div>
     </div>
 
-    <h2>Notes</h2>
-    <ul id="notes">
-      <li class="red">
-        <span class="delete"><i class="fa fa-trash-o"></i></span>
-        <span class="note-title">Title</span>
-        <span class="note-message">This is the message</span>
-        <footer>
-          <span class="edit"><i class="fa fa-pencil-square-o"></i> Edit</span>
-        </footer>
-      </li>
+    <div id="notes-section">
+      <h2>Notes</h2>
+      <ul id="notes">
+        <li class="red">
+          <span class="delete"><i class="fa fa-trash-o"></i></span>
+          <span class="note-title">Title</span>
+          <span class="note-message">This is the message</span>
+          <footer>
+            <span class="edit"><i class="fa fa-pencil-square-o"></i> Edit</span>
+          </footer>
+        </li>
 
-    </ul>
+      </ul>
+    </div>
   </div>
 
   <script type="text/javascript" src="scripts.js"></script>
