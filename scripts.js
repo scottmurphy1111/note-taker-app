@@ -1,4 +1,5 @@
 (function() {
+  'use strict';
 
   var app = {
     noteEditor: document.getElementById('note-editor'),
@@ -36,8 +37,6 @@
       app.errorDisplay.innerHTML = '';
     },
     createNote: function() {
-      note = new Object();
-
       if(!app.title.value || !app.message.value) {
         if(!app.title.value) {
           app.title.classList.add('is-empty');  
@@ -48,6 +47,8 @@
         app.errorDisplay.innerHTML = '<span>*Values required</span>';
         return;
       } else {
+        var note = new Object();
+
         note.title = app.title.value;
         note.message = app.message.value;
         note.color = app.color.value;
@@ -104,7 +105,6 @@
       title,
       message,
       color,
-      isEditMode,
       note = new Object();
 
       li = this.parentNode.parentNode;
